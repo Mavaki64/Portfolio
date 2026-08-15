@@ -3,21 +3,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { House, UserRound, CodeXml, Folder, BriefcaseBusiness, Mail, X, Menu, type LucideIcon } from "lucide-react";
+import {
+  House,
+  UserRound,
+  CodeXml,
+  Folder,
+  BriefcaseBusiness,
+  Mail,
+  X,
+  Menu,
+  type LucideIcon,
+} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-const items: { 
-  id: string; 
+const items: {
+  id: string;
   href: string;
   Icon: LucideIcon;
   label: string;
 }[] = [
-  { id: "Home", href: "#Home", Icon: House, label: "Accueil" },
-  { id: "About", href: "#About", Icon: UserRound, label: "À propos" },
-  { id: "Skills", href: "#Skills", Icon: CodeXml, label: "Compétences" },
-  { id: "Projects", href: "#Projects", Icon: Folder, label: "Projets" },
-  { id: "Parcours", href: "#Parcours", Icon: BriefcaseBusiness, label: "Parcours" },
-  { id: "Contact", href: "#Contact", Icon: Mail, label: "Contact" },
+  { id: "Home", href: "/#Home", Icon: House, label: "Accueil" },
+  { id: "About", href: "/#About", Icon: UserRound, label: "À propos" },
+  { id: "Skills", href: "/#Skills", Icon: CodeXml, label: "Compétences" },
+  { id: "Projects", href: "/#Projects", Icon: Folder, label: "Projets" },
+  {
+    id: "Parcours",
+    href: "/#Parcours",
+    Icon: BriefcaseBusiness,
+    label: "Parcours",
+  },
+  { id: "Contact", href: "/#Contact", Icon: Mail, label: "Contact" },
 ];
 
 export default function Nav() {
