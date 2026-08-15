@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import Skill, { SoftSkill } from "@/components/Skill";
 
 export default function Home() {
   return (
     <>
       <section
         id="Home"
-        className="flex min-h-screen w-full flex-col justify-start gap-10 px-4 pt-24 pb-12 min-[425px]:items-center md:h-screen md:flex-row md:items-center md:justify-around md:gap-8 md:px-4 md:pt-0 md:pb-0 lg:px-5"
+        className="max-w-5xl flex min-h-screen w-full flex-col justify-start gap-10 px-4 pt-24 pb-12 min-[425px]:items-center md:h-screen md:flex-row md:items-center md:justify-around md:gap-8 md:px-4 md:pt-0 md:pb-0 lg:px-5"
       >
         <div className="flex flex-col items-start gap-5 min-[425px]:items-center md:items-start md:gap-8">
           <div className="flex flex-col items-start gap-2 min-[425px]:items-center md:items-start">
@@ -64,11 +65,10 @@ export default function Home() {
 
       <section
         id="About"
-        className="flex min-h-screen w-full flex-col items-start justify-start gap-8 px-4 pt-24 pb-12 md:gap-12 md:px-4 md:py-16 lg:px-5"
+        className="max-w-5xl flex min-h-screen w-full flex-col items-start justify-start gap-8 px-4 pt-24 pb-12 md:gap-12 lg:px-5"
       >
         <h2 className="text-left font-title text-2xl font-bold">À propos</h2>
 
-        {/* float-left dès md : le texte entoure l’image puis reprend toute la largeur */}
         <div className="w-full font-text text-base leading-relaxed md:text-lg">
           <Image
             src="/about.jpeg"
@@ -128,38 +128,65 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="Skills" className="w-full px-4 py-16 md:h-screen md:px-0 md:py-0">
-        <h2 className="text-center font-title text-4xl font-bold">
-          Compétences
-        </h2>
-        <p className="mt-4 text-center font-text text-lg md:mt-0">
-          Je suis un développeur web front-end passionné par la création de
-          sites web et d&apos;applications web.
-        </p>
+      <section id="Skills" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
+        <h2 className="text-left font-title text-2xl font-bold">Compétences</h2>
+        <div className="mt-8 flex flex-col items-center justify-center gap-12 md:flex-row md:items-start md:gap-8 md:gap-8">
+          <div className="flex w-full flex-col items-center gap-4 md:flex-1">
+            <h3 className="font-title text-lg font-semibold">Stack technique</h3>
+            <div className="mx-auto grid grid-cols-2 justify-items-center gap-2 min-[425px]:grid-cols-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
+              <Skill title="HTML5" logo="/skills/html.svg" alt="HTML" />
+              <Skill title="CSS3" logo="/skills/css.svg" alt="CSS" />
+              <Skill
+                title="JavaScript"
+                logo="/skills/javascript.svg"
+                alt="JavaScript"
+              />
+              <Skill
+                title="TypeScript"
+                logo="/skills/typescript.svg"
+                alt="TypeScript"
+              />
+              <Skill title="React" logo="/skills/react.svg" alt="React" />
+              <Skill title="Next.js" logo="/skills/next.svg" alt="Next.js" />
+              <Skill title="Sass" logo="/skills/sass.svg" alt="Sass" />
+              <Skill title="Git" logo="/skills/git.svg" alt="Git" />
+              <Skill title="PHP" logo="/skills/php.svg" alt="PHP" />
+              <Skill title="Laravel" logo="/skills/laravel.svg" alt="Laravel" />
+              <Skill title="SQL" logo="/skills/sql.svg" alt="SQL" />
+              <Skill title="Python" logo="/skills/python.svg" alt="Python" />
+            </div>
+          </div>
+          <div
+            aria-hidden
+            className="hidden w-px self-stretch bg-foreground/10 md:block"
+          />
+          <div className="hidden w-full flex-col items-center gap-4 min-[425px]:flex md:flex-1">
+            <h3 className="font-title text-lg font-semibold">Soft skills</h3>
+            <div className="mx-auto grid grid-cols-2 justify-items-center gap-2 min-[425px]:grid-cols-3 sm:gap-4">
+              <SoftSkill title="Rigueur" />
+              <SoftSkill title="Autonomie" />
+              <SoftSkill title="Adaptabilité" />
+              <SoftSkill title="Persévérance" />
+              <SoftSkill title="Organisation" />
+              <SoftSkill title="Curiosité" />
+              <SoftSkill title="Fiabilité" />
+              <SoftSkill title="Pédagogie" />
+              <SoftSkill title="Résilience" />
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="Projects" className="w-full px-4 py-16 md:h-screen md:px-0 md:py-0">
-        <h2 className="text-center font-title text-4xl font-bold">Projets</h2>
-        <p className="mt-4 text-center font-text text-lg md:mt-0">
-          Je suis un développeur web front-end passionné par la création de
-          sites web et d&apos;applications web.
-        </p>
+      <section id="Projects" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
+      <h2 className="text-left font-title text-2xl font-bold">Projets</h2>
       </section>
 
-      <section id="Parcours" className="w-full px-4 py-16 md:h-screen md:px-0 md:py-0">
-        <h2 className="text-center font-title text-4xl font-bold">Parcours</h2>
-        <p className="mt-4 text-center font-text text-lg md:mt-0">
-          Je suis un développeur web front-end passionné par la création de
-          sites web et d&apos;applications web.
-        </p>
+      <section id="Parcours" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
+      <h2 className="text-left font-title text-2xl font-bold">Parcours</h2>
       </section>
 
-      <section id="Contact" className="w-full px-4 py-16 md:h-screen md:px-0 md:py-0">
-        <h2 className="text-center font-title text-4xl font-bold">Contact</h2>
-        <p className="mt-4 text-center font-text text-lg md:mt-0">
-          Je suis un développeur web front-end passionné par la création de
-          sites web et d&apos;applications web.
-        </p>
+      <section id="Contact" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
+      <h2 className="text-left font-title text-2xl font-bold">Contact</h2>
       </section>
     </>
   );

@@ -38,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="fr"
       className={`${spaceGrotesk.variable} ${interFont.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body className="bg-background text-foreground">
         <Nav />
         <main className="flex flex-col flex-1 items-center justify-center lg:pl-64">
           {children}
