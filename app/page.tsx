@@ -1,6 +1,44 @@
 import Link from "next/link";
 import Image from "next/image";
 import Skill, { SoftSkill } from "@/components/Skill";
+import ProjectCard, { type Project } from "@/components/ProjectCard";
+
+const projects: Project[] = [
+  {
+    id: 1,
+    name: "Argent Bank",
+    full_name: "ArgentBank - Application Bancaire",
+    short_description:
+      "ArgentBank est une application bancaire dont le front-end devait être intégré en React, avec une gestion sécurisée des utilisateurs et de leurs données.",
+    mockup: "/projects/argentbank/Mockup.png",
+    stack_logos: [
+      "/projects/argentbank/js.png",
+      "/projects/argentbank/react.png",
+      "/projects/argentbank/redux.png",
+      "/projects/argentbank/npm.png",
+    ],
+    description_full:
+      "ArgentBank est une application bancaire dont le front-end devait être intégré en React, avec une gestion sécurisée des utilisateurs et de leurs données. L’objectif était de permettre à l’utilisateur de se connecter, d’accéder aux pages protégées et de modifier son pseudonyme grâce à des appels API. Le projet comprenait également la conception d’une documentation Swagger proposant de futures routes dédiées à la gestion des transactions. Ce projet m’a permis de distinguer la gestion des données partagées avec Redux de celle des états d’interface locaux avec React. J’ai également renforcé mes compétences en authentification, protection des routes et la gestion des erreurs côté client L’application livrée propose une interface responsive, une authentification fonctionnelle et une gestion centralisée des informations utilisateur. L’intégration respecte aussi les principes du green code afin de limiter les traitements et chargements inutiles. Le projet pourrait être enrichi par l’implémentation complète des transactions, des tests automatisés et une amélioration de l’accessibilité et des performances.",
+    github_link: "https://github.com/Mavaki64/ArgentBank-Frontend/",
+  },
+  {
+    id: 2,
+    name: "724 Event",
+    full_name: "724Event – Débug du site d'un client",
+    short_description:
+      "724events est un site événementiel développé en React dont plusieurs dysfonctionnements affectaient l’expérience utilisateur et la fiabilité générale.",
+    mockup: "/projects/724event/mockup.png",
+    stack_logos: [
+      "/projects/724event/js.png",
+      "/projects/724event/react.png",
+      "/projects/724event/testing-library.svg",
+      "/projects/724event/yarn.png",
+    ],
+    description_full:
+      "724events est un site événementiel développé en React dont plusieurs dysfonctionnements affectaient l’expérience utilisateur et la fiabilité générale. Le projet visait à identifier puis corriger les anomalies à partir d’un code existant, tout en respectant les besoins du client. Il fallait également vérifier l’ensemble des fonctionnalités et prévenir l’apparition de nouvelles régressions. Ce projet m’a permis d’adopter une méthode de débogage structurée, fondée sur l’analyse de la console, l’exécution des tests et l’inspection du code. J’ai également renforcé mes compétences dans la rédaction de scénarios de recette et la création de tests unitaires pertinents. Les anomalies identifiées ont été corrigées jusqu’à l’obtention d’une application fonctionnelle conforme aux attentes du client. Un cahier de recette et une suite de tests unitaires ont été livrés afin de valider les principales fonctionnalités et de limiter les risques de régression. La qualité du projet pourrait être renforcée par davantage de tests d’intégration, l’automatisation des contrôles dans une chaîne d’intégration continue et un meilleur suivi des erreurs en production.",
+    github_link: "https://github.com/Mavaki64/724Events",
+  },
+];
 
 export default function Home() {
   return (
@@ -178,7 +216,12 @@ export default function Home() {
       </section>
 
       <section id="Projects" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
-      <h2 className="text-left font-title text-2xl font-bold">Projets</h2>
+        <h2 className="text-left font-title text-2xl font-bold">Projets</h2>
+        <div className="mt-8 grid grid-cols-1 justify-items-center gap-6 md:grid-cols-3 md:justify-items-stretch md:gap-4 lg:gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
       </section>
 
       <section id="Parcours" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
