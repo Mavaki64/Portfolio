@@ -2,6 +2,67 @@ import Link from "next/link";
 import Image from "next/image";
 import Skill, { SoftSkill } from "@/components/Skill";
 import ProjectCard, { type Project } from "@/components/ProjectCard";
+import CareerCard from "@/components/CareerCard";
+
+type CareerItem = {
+  id: number;
+  type: "Formation" | "Expérience";
+  title: string;
+  description: string | null;
+  date: string;
+  location: string;
+};
+
+const career: CareerItem[] = [
+  {
+    id: 1,
+    type: "Expérience",
+    title: "Fondateur & Développeur web",
+    description: null,
+    date: "2025 - aujourd’hui",
+    location: "Insaity",
+  },
+  {
+    id: 2,
+    type: "Formation",
+    title: "Bac +3 - Titre RNCP38038",
+    description: "Développeur concepteur logiciel",
+    date: "A venir",
+    location: "OpenClassrooms",
+  },
+  {
+    id: 3,
+    type: "Expérience",
+    title: "Magasinier/Cariste",
+    description: null,
+    date: "2021 - aujourd’hui",
+    location: "Sokoa",
+  },
+  {
+    id: 4,
+    type: "Formation",
+    title: "Bac +2 - Titre RNCP38145",
+    description: "Intégrateur web",
+    date: "2025 - 2026",
+    location: "OpenClassRooms",
+  },
+  {
+    id: 5,
+    type: "Expérience",
+    title: "Agent de production",
+    description: null,
+    date: "2017 - 2021",
+    location: "Epta France",
+  },
+  {
+    id: 6,
+    type: "Formation",
+    title: "Bac pro SEN",
+    description: "Systèmes électroniques et numériques",
+    date: "2013 - 2016",
+    location: "Lycée Ramirro Arrue",
+  },
+];
 
 const projects: Project[] = [
   {
@@ -224,8 +285,43 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="Parcours" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
-      <h2 className="text-left font-title text-2xl font-bold">Parcours</h2>
+      <section id="Parcours" className="max-w-5xl w-full px-4 py-16 lg:px-5">
+        <h2 className="text-left font-title text-2xl font-bold">Parcours</h2>
+
+        <div className="relative mt-8">
+          <div
+            aria-hidden
+            className="absolute top-0 bottom-0 left-[5px] w-px bg-foreground/10 md:left-1/2 md:-translate-x-1/2"
+          />
+          <ol className="flex flex-col gap-8 md:gap-12">
+            {career.map((item) => {
+              const isLeft = item.type === "Formation";
+              return (
+                <li
+                  key={item.id}
+                  className="md:grid md:grid-cols-2"
+                >
+                  <div
+                    className={
+                      isLeft
+                        ? "md:col-start-1 md:-mr-1.5"
+                        : "md:col-start-2 md:-ml-1.5"
+                    }
+                  >
+                    <CareerCard
+                      type={item.type}
+                      title={item.title}
+                      description={item.description}
+                      date={item.date}
+                      location={item.location}
+                      orientation={isLeft ? "left" : "right"}
+                    />
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </section>
 
       <section id="Contact" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
