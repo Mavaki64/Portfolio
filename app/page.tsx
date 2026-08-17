@@ -1,8 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Skill, { SoftSkill } from "@/components/Skill";
-import ProjectCard, { type Project } from "@/components/ProjectCard";
+import { type Project } from "@/components/ProjectCard";
+import ProjectsCarousel from "@/components/ProjectsCarousel";
 import CareerCard from "@/components/CareerCard";
+import ContactForm from "@/components/ContactForm";
+import ContactLink from "@/components/ContactLink";
+import { Mail } from "lucide-react";
 
 type CareerItem = {
   id: number;
@@ -126,13 +130,13 @@ export default function Home() {
           <div className="flex flex-row flex-wrap items-start justify-start gap-3 min-[425px]:justify-center md:justify-start md:gap-4">
             <Link
               href="#Projects"
-              className="border border-primary bg-primary/20 px-4 py-2 text-center font-text text-foreground"
+              className="border border-primary bg-primary/20 px-4 py-2 text-center font-text text-foreground transition-colors hover:bg-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
               Voir mes projets
             </Link>
             <Link
               href="#Contact"
-              className="border border-foreground px-4 py-2 text-center font-text text-foreground"
+              className="border border-foreground px-4 py-2 text-center font-text text-foreground transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             >
               Me contacter
             </Link>
@@ -278,11 +282,7 @@ export default function Home() {
 
       <section id="Projects" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
         <h2 className="text-left font-title text-2xl font-bold">Projets</h2>
-        <div className="mt-8 grid grid-cols-1 justify-items-center gap-6 md:grid-cols-3 md:justify-items-stretch md:gap-4 lg:gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+        <ProjectsCarousel projects={projects} />
       </section>
 
       <section id="Parcours" className="max-w-5xl w-full px-4 py-16 lg:px-5">
@@ -324,8 +324,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="Contact" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
-      <h2 className="text-left font-title text-2xl font-bold">Contact</h2>
+      <section id="Contact" className="max-w-5xl w-full px-4 py-16 lg:px-5">
+        <h2 className="text-left font-title text-2xl font-bold">Contact</h2>
+        <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-stretch md:gap-8 lg:gap-12">
+          <div className="w-full md:flex-1">
+            <ContactForm />
+          </div>
+          <div
+            aria-hidden
+            className="hidden w-px self-stretch bg-foreground/10 md:block"
+          />
+          <div className="@container flex w-full flex-col items-center justify-center gap-4 text-center md:flex-1">
+            <h3 className="font-title text-lg font-semibold">
+              Retrouvez-moi aussi sur
+            </h3>
+            <div className="mx-auto grid w-fit grid-cols-1 justify-items-center gap-4 @[220px]:grid-cols-2 @[448px]:grid-cols-4">
+              <ContactLink
+                href="www.linkedin.com/in/killian-gayez-9a1198287"
+                label="LinkedIn"
+                src="/contact/linkedin.svg"
+              />
+              <ContactLink
+                href="https://github.com/Mavaki64"
+                label="GitHub"
+                src="/contact/Github.svg"
+              />
+              <ContactLink
+                href="https://insaity.fr"
+                label="Insaity"
+                src="/contact/code.svg"
+              />
+              <ContactLink
+                href="mailto:killiangayez@gmail.com"
+                label="Envoyer un email"
+                text={"@"}
+              />
+            </div>
+          </div>
+        </div>
       </section>
     </>
   );
