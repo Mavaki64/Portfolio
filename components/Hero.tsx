@@ -38,6 +38,15 @@ const fadePhoto: Variants = {
   },
 };
 
+const photoImmediate: Variants = {
+  hidden: { opacity: 1, y: 0 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.01, ease },
+  },
+};
+
 export default function Hero() {
   const reduceMotion = useReducedMotion();
 
@@ -101,7 +110,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          variants={reduceMotion ? undefined : fadeUp}
+          variants={reduceMotion ? undefined : photoImmediate}
           className="mt-2 flex w-full justify-center md:hidden"
         >
           <Image
@@ -111,6 +120,7 @@ export default function Hero() {
             height={400}
             className={`size-58 min-[375px]:size-72 ${photoClassName}`}
             priority
+            fetchPriority="high"
           />
         </motion.div>
       </motion.div>
@@ -127,7 +137,6 @@ export default function Hero() {
           className={`size-76 xl:size-88 2xl:size-96 ${photoClassName}`}
           width={400}
           height={400}
-          priority
         />
       </motion.div>
     </section>
