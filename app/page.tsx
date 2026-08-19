@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Skill, { SoftSkill } from "@/components/Skill";
 import { type Project } from "@/components/ProjectCard";
-import ProjectsCarousel from "@/components/ProjectsCarousel";
+import LazyProjectsCarousel from "@/components/LazyProjectsCarousel";
 import CareerCard from "@/components/CareerCard";
-import ContactForm from "@/components/ContactForm";
+import LazyContactForm from "@/components/LazyContactForm";
 import ContactLink from "@/components/ContactLink";
 import SectionReveal from "@/components/SectionReveal";
 import Hero from "@/components/Hero";
@@ -251,7 +251,7 @@ export default function Home() {
       >
         <SectionReveal>
         <h2 id="projects-title" className={sectionTitleClass}>Projets</h2>
-        <ProjectsCarousel projects={projects} />
+        <LazyProjectsCarousel projects={projects} />
         </SectionReveal>
       </section>
 
@@ -311,7 +311,7 @@ export default function Home() {
         <h2 id="contact-title" className={sectionTitleClass}>Contact</h2>
         <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-stretch md:gap-8 lg:gap-12">
           <div className="w-full md:flex-1">
-            <ContactForm />
+            <LazyContactForm />
           </div>
           <div
             aria-hidden
