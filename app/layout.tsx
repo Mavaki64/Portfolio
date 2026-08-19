@@ -56,8 +56,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="bg-background text-foreground">
         <Nav />
-        <main className="main-texture min-h-full flex-1 bg-background lg:pl-64">
-          <div className="main-texture-content flex min-h-full flex-col items-center justify-center">
+        <main className="min-h-full flex-1 bg-background lg:pl-64">
+          <div className="flex min-h-full flex-col items-center justify-center">
             {children}
           </div>
         </main>
