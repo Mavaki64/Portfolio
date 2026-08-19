@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import Skill, { SoftSkill } from "@/components/Skill";
 import { type Project } from "@/components/ProjectCard";
@@ -6,7 +5,8 @@ import ProjectsCarousel from "@/components/ProjectsCarousel";
 import CareerCard from "@/components/CareerCard";
 import ContactForm from "@/components/ContactForm";
 import ContactLink from "@/components/ContactLink";
-import { Mail } from "lucide-react";
+import SectionReveal from "@/components/SectionReveal";
+import Hero from "@/components/Hero";
 
 type CareerItem = {
   id: number;
@@ -97,7 +97,7 @@ const projects: Project[] = [
       "/projects/724event/js.png",
       "/projects/724event/react.png",
       "/projects/724event/testing-library.svg",
-      "/projects/724event/yarn.png",
+      "/projects/724event/yarn-logo.png",
     ],
     description_full:
       "724events est un site événementiel développé en React dont plusieurs dysfonctionnements affectaient l’expérience utilisateur et la fiabilité générale. Le projet visait à identifier puis corriger les anomalies à partir d’un code existant, tout en respectant les besoins du client. Il fallait également vérifier l’ensemble des fonctionnalités et prévenir l’apparition de nouvelles régressions. Ce projet m’a permis d’adopter une méthode de débogage structurée, fondée sur l’analyse de la console, l’exécution des tests et l’inspection du code. J’ai également renforcé mes compétences dans la rédaction de scénarios de recette et la création de tests unitaires pertinents. Les anomalies identifiées ont été corrigées jusqu’à l’obtention d’une application fonctionnelle conforme aux attentes du client. Un cahier de recette et une suite de tests unitaires ont été livrés afin de valider les principales fonctionnalités et de limiter les risques de régression. La qualité du projet pourrait être renforcée par davantage de tests d’intégration, l’automatisation des contrôles dans une chaîne d’intégration continue et un meilleur suivi des erreurs en production.",
@@ -105,72 +105,25 @@ const projects: Project[] = [
   },
 ];
 
+const sectionTitleClass =
+  "section-title font-title text-2xl font-bold";
+
+const focusableSectionClass =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40";
+
 export default function Home() {
   return (
     <>
-      <section
-        id="Home"
-        className="max-w-5xl flex min-h-screen w-full flex-col justify-start gap-10 px-4 pt-24 pb-12 min-[425px]:items-center md:h-screen md:flex-row md:items-center md:justify-around md:gap-8 md:px-4 md:pt-0 md:pb-0 lg:px-5"
-      >
-        <div className="flex flex-col items-start gap-5 min-[425px]:items-center md:items-start md:gap-8">
-          <div className="flex flex-col items-start gap-2 min-[425px]:items-center md:items-start">
-            <h1 className="font-title text-4xl font-bold text-center min-[375px]:text-5xl xl:text-7xl">
-              Killian GAYEZ
-            </h1>
-            <h2 className="font-title text-center text-lg font-semibold min-[375px]:text-xl lg:text-xl xl:text-3xl after:mt-1 after:block after:h-[4px] after:w-20 after:bg-primary after:content-[''] min-[425px]:after:mx-auto md:after:mx-0 xl:after:w-30">
-              Développeur Front-end Junior
-            </h2>
-          </div>
-
-          <p className="max-w-sm text-left font-text text-base text-balance min-[375px]:text-xl min-[425px]:text-center md:text-left">
-            Je crée des interfaces web simples, accessibles et centrées
-            utilisateur.
-          </p>
-
-          <div className="flex flex-row flex-wrap items-start justify-start gap-3 min-[425px]:justify-center md:justify-start md:gap-4">
-            <Link
-              href="#Projects"
-              className="border border-primary bg-primary/20 px-4 py-2 text-center font-text text-foreground transition-colors hover:bg-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-            >
-              Voir mes projets
-            </Link>
-            <Link
-              href="#Contact"
-              className="border border-foreground px-4 py-2 text-center font-text text-foreground transition-colors hover:border-primary hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
-            >
-              Me contacter
-            </Link>
-          </div>
-
-          <div className="mt-2 flex w-full justify-center md:hidden">
-            <Image
-              src="/home.jpg"
-              alt="Killian GAYEZ"
-              width={400}
-              height={400}
-              className="size-58 rounded-full object-cover min-[375px]:size-72"
-              priority
-            />
-          </div>
-        </div>
-
-        <div className="hidden shrink-0 md:block">
-          <Image
-            src="/home.jpg"
-            alt="Killian GAYEZ"
-            className="rounded-full object-cover size-76 xl:size-88 2xl:size-96"
-            width={400}
-            height={400}
-            priority
-          />
-        </div>
-      </section>
+      <Hero />
 
       <section
         id="About"
-        className="max-w-5xl flex min-h-screen w-full flex-col items-start justify-start gap-8 px-4 pt-24 pb-12 md:gap-12 lg:px-5"
+        aria-labelledby="about-title"
+        tabIndex={0}
+        className={`max-w-5xl flex min-h-screen w-full flex-col items-start justify-start gap-8 px-4 pt-24 pb-12 md:gap-12 lg:px-5 ${focusableSectionClass}`}
       >
-        <h2 className="text-left font-title text-2xl font-bold">À propos</h2>
+        <SectionReveal className="flex w-full flex-col items-start justify-start gap-8 md:gap-12">
+        <h2 id="about-title" className={sectionTitleClass}>À propos</h2>
 
         <div className="w-full font-text text-base leading-relaxed md:text-lg">
           <Image
@@ -229,34 +182,43 @@ export default function Home() {
             </p>
           </div>
         </div>
+        </SectionReveal>
       </section>
 
-      <section id="Skills" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
-        <h2 className="text-left font-title text-2xl font-bold">Compétences</h2>
-        <div className="mt-8 flex flex-col items-center justify-center gap-12 md:flex-row md:items-start md:gap-8 md:gap-8">
+      <section
+        id="Skills"
+        aria-labelledby="skills-title"
+        tabIndex={0}
+        className={`max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5 ${focusableSectionClass}`}
+      >
+        <SectionReveal>
+        <h2 id="skills-title" className={sectionTitleClass}>Compétences</h2>
+        <div className="mt-8 flex flex-col items-center justify-center gap-12 md:flex-row md:items-start md:gap-8">
           <div className="flex w-full flex-col items-center gap-4 md:flex-1">
             <h3 className="font-title text-lg font-semibold">Stack technique</h3>
             <div className="mx-auto grid grid-cols-2 justify-items-center gap-2 min-[425px]:grid-cols-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
-              <Skill title="HTML5" logo="/skills/html.svg" alt="HTML" />
-              <Skill title="CSS3" logo="/skills/css.svg" alt="CSS" />
+              <Skill title="HTML5" logo="/skills/html.svg" alt="HTML" index={0} />
+              <Skill title="CSS3" logo="/skills/css.svg" alt="CSS" index={1} />
               <Skill
                 title="JavaScript"
                 logo="/skills/javascript.svg"
                 alt="JavaScript"
+                index={2}
               />
               <Skill
                 title="TypeScript"
                 logo="/skills/typescript.svg"
                 alt="TypeScript"
+                index={3}
               />
-              <Skill title="React" logo="/skills/react.svg" alt="React" />
-              <Skill title="Next.js" logo="/skills/next.svg" alt="Next.js" />
-              <Skill title="Sass" logo="/skills/sass.svg" alt="Sass" />
-              <Skill title="Git" logo="/skills/git.svg" alt="Git" />
-              <Skill title="PHP" logo="/skills/php.svg" alt="PHP" />
-              <Skill title="Laravel" logo="/skills/laravel.svg" alt="Laravel" />
-              <Skill title="SQL" logo="/skills/sql.svg" alt="SQL" />
-              <Skill title="Python" logo="/skills/python.svg" alt="Python" />
+              <Skill title="React" logo="/skills/react.svg" alt="React" index={4} />
+              <Skill title="Next.js" logo="/skills/next.svg" alt="Next.js" index={5} />
+              <Skill title="Sass" logo="/skills/sass.svg" alt="Sass" index={6} />
+              <Skill title="Git" logo="/skills/git.svg" alt="Git" index={7} />
+              <Skill title="PHP" logo="/skills/php.svg" alt="PHP" index={8} />
+              <Skill title="Laravel" logo="/skills/laravel.svg" alt="Laravel" index={9} />
+              <Skill title="SQL" logo="/skills/sql.svg" alt="SQL" index={10} />
+              <Skill title="Python" logo="/skills/python.svg" alt="Python" index={11} />
             </div>
           </div>
           <div
@@ -266,27 +228,41 @@ export default function Home() {
           <div className="hidden w-full flex-col items-center gap-4 min-[425px]:flex md:flex-1">
             <h3 className="font-title text-lg font-semibold">Soft skills</h3>
             <div className="mx-auto grid grid-cols-2 justify-items-center gap-2 min-[425px]:grid-cols-3 sm:gap-4">
-              <SoftSkill title="Rigueur" />
-              <SoftSkill title="Autonomie" />
-              <SoftSkill title="Adaptabilité" />
-              <SoftSkill title="Persévérance" />
-              <SoftSkill title="Organisation" />
-              <SoftSkill title="Curiosité" />
-              <SoftSkill title="Fiabilité" />
-              <SoftSkill title="Pédagogie" />
-              <SoftSkill title="Résilience" />
+              <SoftSkill title="Rigueur" index={0} />
+              <SoftSkill title="Autonomie" index={1} />
+              <SoftSkill title="Adaptabilité" index={2} />
+              <SoftSkill title="Persévérance" index={3} />
+              <SoftSkill title="Organisation" index={4} />
+              <SoftSkill title="Curiosité" index={5} />
+              <SoftSkill title="Fiabilité" index={6} />
+              <SoftSkill title="Pédagogie" index={7} />
+              <SoftSkill title="Résilience" index={8} />
             </div>
           </div>
         </div>
+        </SectionReveal>
       </section>
 
-      <section id="Projects" className="max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5">
-        <h2 className="text-left font-title text-2xl font-bold">Projets</h2>
+      <section
+        id="Projects"
+        aria-labelledby="projects-title"
+        tabIndex={0}
+        className={`max-w-5xl w-full px-4 py-16 md:h-screen lg:px-5 ${focusableSectionClass}`}
+      >
+        <SectionReveal>
+        <h2 id="projects-title" className={sectionTitleClass}>Projets</h2>
         <ProjectsCarousel projects={projects} />
+        </SectionReveal>
       </section>
 
-      <section id="Parcours" className="max-w-5xl w-full px-4 py-16 lg:px-5">
-        <h2 className="text-left font-title text-2xl font-bold">Parcours</h2>
+      <section
+        id="Parcours"
+        aria-labelledby="parcours-title"
+        tabIndex={0}
+        className={`max-w-5xl w-full px-4 py-16 lg:px-5 ${focusableSectionClass}`}
+      >
+        <SectionReveal>
+        <h2 id="parcours-title" className={sectionTitleClass}>Parcours</h2>
 
         <div className="relative mt-8">
           <div
@@ -322,10 +298,17 @@ export default function Home() {
             })}
           </ol>
         </div>
+        </SectionReveal>
       </section>
 
-      <section id="Contact" className="max-w-5xl w-full px-4 py-16 lg:px-5">
-        <h2 className="text-left font-title text-2xl font-bold">Contact</h2>
+      <section
+        id="Contact"
+        aria-labelledby="contact-title"
+        tabIndex={0}
+        className={`max-w-5xl w-full px-4 py-16 lg:px-5 ${focusableSectionClass}`}
+      >
+        <SectionReveal>
+        <h2 id="contact-title" className={sectionTitleClass}>Contact</h2>
         <div className="mt-8 flex flex-col gap-10 md:flex-row md:items-stretch md:gap-8 lg:gap-12">
           <div className="w-full md:flex-1">
             <ContactForm />
@@ -340,7 +323,7 @@ export default function Home() {
             </h3>
             <div className="mx-auto grid w-fit grid-cols-1 justify-items-center gap-4 @[220px]:grid-cols-2 @[448px]:grid-cols-4">
               <ContactLink
-                href="www.linkedin.com/in/killian-gayez-9a1198287"
+                href="https://www.linkedin.com/in/killian-gayez-9a1198287"
                 label="LinkedIn"
                 src="/contact/linkedin.svg"
               />
@@ -362,6 +345,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </SectionReveal>
       </section>
     </>
   );

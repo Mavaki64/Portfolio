@@ -33,7 +33,7 @@ export default function CareerCard({
         <span className="h-px w-5 bg-foreground/20 sm:w-7" />
       </div>
 
-      <article className="min-w-0 flex-1 rounded-xl border border-foreground/10 bg-surface p-4">
+      <article className="min-w-0 flex-1 rounded-xl border border-foreground/10 bg-surface p-4 motion-safe:transition-[transform,border-color] motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:scale-[1.015] hover:border-primary/70">
         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
           <p className="font-title text-xs font-semibold tracking-wide text-primary uppercase">
             {type}

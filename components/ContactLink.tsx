@@ -25,7 +25,7 @@ export default function ContactLink({
       aria-label={label}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
-      className="inline-flex size-24 items-center justify-center rounded-full border border-foreground/10 bg-surface text-primary outline-none transition-colors hover:border-primary focus-visible:ring-2 focus-visible:ring-primary/40"
+      className="inline-flex size-24 items-center justify-center rounded-full border border-foreground/10 bg-surface text-primary outline-none motion-safe:transition-[transform,border-color] motion-safe:duration-200 motion-safe:ease-out motion-safe:hover:scale-[1.04] hover:border-primary focus-visible:ring-2 focus-visible:ring-primary/40"
     >
       {src ? (
         <Image
@@ -38,9 +38,7 @@ export default function ContactLink({
       ) : Icon ? (
         <Icon className="size-12" strokeWidth={1.5} aria-hidden />
       ) : (
-        <span className="font-title text-5xl leading-none">
-          {text}
-        </span>
+        <span className="font-title text-5xl leading-none">{text}</span>
       )}
     </Link>
   );

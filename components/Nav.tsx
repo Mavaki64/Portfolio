@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   House,
   UserRound,
@@ -14,7 +14,8 @@ import {
   Menu,
   type LucideIcon,
 } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import { useFocusTrap } from "@/components/useFocusTrap";
 
 const items: {
   id: string;
@@ -38,6 +39,10 @@ const items: {
 export default function Nav() {
   const [active, setActive] = useState<string>("Home");
   const [isOpen, setIsOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
+  const mobileMenuRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const onHash = () => setActive(window.location.hash.slice(1) || "Home");
@@ -47,11 +52,70 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
+    const sections = items
+      .map(({ id }) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const nextActive = entries
+          .filter(
+            (entry) => entry.isIntersecting && entry.intersectionRatio >= 0.8,
+          )
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (nextActive?.target.id) {
+          setActive(nextActive.target.id);
+
+          const nextHash = `#${nextActive.target.id}`;
+          if (window.location.hash !== nextHash) {
+            window.history.replaceState(null, "", nextHash);
+          }
+        }
+      },
+      {
+        threshold: [0.8, 0.9, 1],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    previousFocusRef.current = document.activeElement as HTMLElement | null;
+    const frame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      previousFocusRef.current?.focus();
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) return;
+
+    if (isOpen) {
+      main.setAttribute("inert", "");
+      return () => main.removeAttribute("inert");
+    }
+
+    main.removeAttribute("inert");
+  }, [isOpen]);
+
+  useFocusTrap(isOpen, mobileMenuRef, () => setIsOpen(false));
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1024px)");
@@ -85,16 +149,23 @@ export default function Nav() {
         <AnimatePresence>
           {isOpen && (
             <motion.nav
+              ref={mobileMenuRef}
               id="main-nav-mobile"
               key="nav-mobile"
-              initial={{ x: "100%", opacity: 0 }}
+              initial={reduceMotion ? false : { x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
+              exit={reduceMotion ? undefined : { x: "100%", opacity: 0 }}
+              transition={
+                reduceMotion
+                  ? { duration: 0.01 }
+                  : { type: "spring", stiffness: 320, damping: 32 }
+              }
+              tabIndex={-1}
               className="bg-surface w-full h-screen fixed inset-0 z-10 font-inter"
             >
               <div className="flex justify-end w-full p-4">
                 <button
+                  ref={closeButtonRef}
                   type="button"
                   aria-label="Fermer le menu"
                   className={buttonClassName}
@@ -115,7 +186,7 @@ export default function Nav() {
                         setActive(id);
                         setIsOpen(false);
                       }}
-                      className="flex items-center gap-2 text-xl outline-none focus-visible:ring-2 focus-visible:ring-primary/10 hover:bg-primary/10 w-full justify-center px-2 py-4"
+                      className="flex w-full items-center justify-center gap-2 px-2 py-4 text-xl outline-none hover:bg-primary/10 focus-visible:ring-2 focus-visible:ring-primary/40"
                     >
                       <Icon className="w-12 h-12" strokeWidth={1} />
                       {label}
@@ -159,11 +230,11 @@ export default function Nav() {
                   <motion.div
                     layoutId="desktop-nav-active"
                     className="absolute inset-y-0 left-0 w-1 bg-primary"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
+                    transition={
+                      reduceMotion
+                        ? { duration: 0.01 }
+                        : { type: "spring", stiffness: 380, damping: 30 }
+                    }
                   />
                 )}
                 <Link
