@@ -13,22 +13,38 @@ export const interFont = Inter({
   subsets: ["latin"],
 });
 
+const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Portfolio - Killian GAYEZ";
+
+const metaTitle = `${appName} - Développeur front-end junior (React/Next.js)`;
+
+const metaDescription =
+  "Portfolio de Killian Gayez, développeur front-end junior. React & Next.js, accessibilité, performance et interfaces UI soignées. Découvrez mes projets et mon parcours.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
-  title: process.env.NEXT_PUBLIC_APP_NAME,
-  description: "Portfolio de Killian GAYEZ, développeur web front-end.",
+  title: metaTitle,
+  description: metaDescription,
   openGraph: {
     type: "website",
     locale: "fr_FR",
     url: "/",
-    siteName: process.env.NEXT_PUBLIC_APP_NAME,
-    title: process.env.NEXT_PUBLIC_APP_NAME,
-    description: "Portfolio de Killian GAYEZ, développeur web front-end.",
+    siteName: appName,
+    title: metaTitle,
+    description: metaDescription,
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Portfolio Killian Gayez",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: process.env.NEXT_PUBLIC_APP_NAME,
-    description: "Portfolio de Killian GAYEZ, développeur web front-end.",
+    title: metaTitle,
+    description: metaDescription,
+    images: ["/twitter-image.jpg"],
   },
 };
 
