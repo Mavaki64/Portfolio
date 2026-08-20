@@ -8,7 +8,8 @@ export type Project = {
   mockup: string;
   stack_logos: string[];
   description_full: string;
-  github_link: string;
+  github_link?: string;
+  website_link?: string;
 };
 
 export default function ProjectCard({

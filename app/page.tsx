@@ -103,6 +103,25 @@ const projects: Project[] = [
       "724events est un site événementiel développé en React dont plusieurs dysfonctionnements affectaient l’expérience utilisateur et la fiabilité générale. Le projet visait à identifier puis corriger les anomalies à partir d’un code existant, tout en respectant les besoins du client. Il fallait également vérifier l’ensemble des fonctionnalités et prévenir l’apparition de nouvelles régressions. Ce projet m’a permis d’adopter une méthode de débogage structurée, fondée sur l’analyse de la console, l’exécution des tests et l’inspection du code. J’ai également renforcé mes compétences dans la rédaction de scénarios de recette et la création de tests unitaires pertinents. Les anomalies identifiées ont été corrigées jusqu’à l’obtention d’une application fonctionnelle conforme aux attentes du client. Un cahier de recette et une suite de tests unitaires ont été livrés afin de valider les principales fonctionnalités et de limiter les risques de régression. La qualité du projet pourrait être renforcée par davantage de tests d’intégration, l’automatisation des contrôles dans une chaîne d’intégration continue et un meilleur suivi des erreurs en production.",
     github_link: "https://github.com/Mavaki64/724Events",
   },
+  {
+    id: 3,
+    name: "Stephane Daubas - Guide touristique",
+    full_name: "Stephane Daubas - Guide touristique",
+    short_description:
+      "Ce projet professionnel consiste à concevoir, développer et héberger le site vitrine de Stéphane Daubas, guide touristique, afin de présenter son activité et ses parcours de visite.",
+    mockup: "/projects/stephanedaubas/mockup.png",
+    stack_logos: [
+      "/projects/stephanedaubas/js.png",
+      "/projects/stephanedaubas/laravel.webp",
+      "/projects/stephanedaubas/docker.png",
+      "/projects/stephanedaubas/phpunit.svg",
+      "/projects/stephanedaubas/postgresql.webp",
+      "/projects/stephanedaubas/redis.webp",
+    ],
+    description_full:
+      "Ce projet professionnel consiste à concevoir, développer et héberger le site vitrine de Stéphane Daubas, guide touristique, afin de présenter son activité et ses parcours de visite. Le client souhaitait une interface simple, épurée et éco-conçue, limitée aux contenus et fonctionnalités réellement utiles. Le site doit permettre aux visiteurs de consulter les disponibilités du guide et de découvrir différents parcours à travers des fiches comprenant un titre, une photographie, une description et des tags. Une interface d’administration doit également faciliter la création, la modification et la suppression de ces parcours. Ce projet m’a permis de prendre en charge les différentes étapes d’une commande professionnelle, de la conception graphique au déploiement. J’ai également approfondi mes compétences en développement Back-End, gestion de données, mise en cache, tests automatisés et intégration de formulaires de contact. Actuellement en cours de développement, le site propose une base fonctionnelle conforme au besoin du client, avec un design sobre, des contenus ciblés et un nombre limité d’images et d’interactions. Cette approche contribue à réduire le poids des pages tout en conservant une navigation claire et une présentation efficace de l’activité. Les prochaines étapes comprennent la finalisation des fonctionnalités, l’enrichissement des tests, la mesure des performances et de l’impact environnemental, puis les derniers ajustements avant la mise en production.",
+    website_link: "https://stephanedaubas.fr",
+  },
 ];
 
 const sectionTitleClass =

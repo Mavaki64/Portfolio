@@ -138,18 +138,18 @@ export default function ProjectModal({
                   {project.description_full}
                 </p>
 
-                {project.github_link ? (
+                {project.github_link || project.website_link ? (
                   <div className="mt-2 rounded-lg border border-foreground/10 bg-background/60 p-4">
                     <h3 className="font-title text-sm font-semibold text-foreground">
                       Liens et ressources
                     </h3>
                     <a
-                      href={project.github_link}
+                      href={project.github_link || project.website_link}
                       target="_blank"
                       rel="noopener noreferrer"
                     className="mt-2 inline-flex font-text text-sm text-primary underline-offset-4 transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
                     >
-                      Voir le dépôt GitHub
+                      {project.github_link ? "Voir le dépôt GitHub" : "Voir le site web"}
                     </a>
                   </div>
                 ) : null}
