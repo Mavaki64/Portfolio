@@ -29,7 +29,6 @@ export default function LazyProjectsCarousel({
         }
       },
       {
-        // Déclenche avant d'être réellement “au milieu” de l'écran
         rootMargin: "600px 0px",
         threshold: 0.01,
       },

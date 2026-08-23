@@ -119,7 +119,7 @@ const projects: Project[] = [
       "/projects/stephanedaubas/redis.webp",
     ],
     description_full:
-      "Ce projet professionnel consiste à concevoir, développer et héberger le site vitrine de Stéphane Daubas, guide touristique, afin de présenter son activité et ses parcours de visite. Le client souhaitait une interface simple, épurée et éco-conçue, limitée aux contenus et fonctionnalités réellement utiles. Le site doit permettre aux visiteurs de consulter les disponibilités du guide et de découvrir différents parcours à travers des fiches comprenant un titre, une photographie, une description et des tags. Une interface d’administration doit également faciliter la création, la modification et la suppression de ces parcours. Ce projet m’a permis de prendre en charge les différentes étapes d’une commande professionnelle, de la conception graphique au déploiement. J’ai également approfondi mes compétences en développement Back-End, gestion de données, mise en cache, tests automatisés et intégration de formulaires de contact. Actuellement en cours de développement, le site propose une base fonctionnelle conforme au besoin du client, avec un design sobre, des contenus ciblés et un nombre limité d’images et d’interactions. Cette approche contribue à réduire le poids des pages tout en conservant une navigation claire et une présentation efficace de l’activité. Les prochaines étapes comprennent la finalisation des fonctionnalités, l’enrichissement des tests, la mesure des performances et de l’impact environnemental, puis les derniers ajustements avant la mise en production.",
+      "Ce projet professionnel consiste à concevoir, développer et héberger le site vitrine de Stéphane Daubas, guide touristique au Pays Basque, afin de présenter son activité et ses parcours de visite. Le client souhaitait une interface simple, épurée et éco-conçue, limitée aux contenus et fonctionnalités réellement utiles. Le site doit permettre aux visiteurs de consulter les disponibilités du guide et de découvrir différents parcours à travers des fiches comprenant un titre, une photographie, une description et des tags. Une interface d’administration doit également faciliter la création, la modification et la suppression de ces parcours. Ce projet m’a permis de prendre en charge les différentes étapes d’une commande professionnelle, de la conception graphique au déploiement. J’ai également approfondi mes compétences en développement Back-End, gestion de données, mise en cache, tests automatisés et intégration de formulaires de contact. Actuellement en cours de développement, le site propose une base fonctionnelle conforme au besoin du client, avec un design sobre, des contenus ciblés et un nombre limité d’images et d’interactions. Cette approche contribue à réduire le poids des pages tout en conservant une navigation claire et une présentation efficace de l’activité. Les prochaines étapes comprennent la finalisation des fonctionnalités, l’enrichissement des tests, la mesure des performances et de l’impact environnemental, puis les derniers ajustements avant la mise en production.",
     website_link: "https://stephanedaubas.fr",
   },
 ];
@@ -147,15 +147,15 @@ export default function Home() {
         <div className="w-full font-text text-base leading-relaxed md:text-lg">
           <Image
             src="/about.jpeg"
-            alt="Killian GAYEZ"
+            alt="Killian Gayez, développeur front-end junior au Pays Basque"
             width={380}
             height={380}
             className="mx-auto mb-8 block size-[280px] object-cover object-[0%_25%] min-[425px]:size-[320px] md:float-left md:mx-0 md:mb-4 md:mr-10 md:size-[380px]"
           />
           <div className="space-y-4 text-left">
             <p>
-              Bonjour, je suis Killian Gayez, développeur Front-End, passionné
-              par la conception d’applications robustes, fiables et rapides,
+              Bonjour, je suis Killian Gayez, développeur Front-End junior basé a Hendaye au Pays Basque, passionné
+              par la conception d’applications web robustes, interactives et des interface utilisateur accessibles,
               avec une attention particulière portée aux performances, à la
               qualité du code et à la sécurité.
             </p>
@@ -168,26 +168,26 @@ export default function Home() {
               d’intégrateur web préparant au titre RNCP38145 de Développeur
               informatique. Cette reconversion me permet d’associer plusieurs
               années de pratique personnelle à la rigueur et au sens des
-              priorités acquis dans l’industrie.
+              priorités acquis dans l’industrie. Aujourd'hui, je vise des 
+              missions et des postes de développeur front-end autour d'Hendaye, 
+              Saint-Jean-de-Luz, Biarritz, Anglet, Bayonne et dans le Pays Basque 
+              au complet.
             </p>
             <p>
-              Je développe principalement avec HTML/CSS, JavaScript, React, Next
-              et Tailwind CSS, en m’appuyant sur Git pour versionner mes projets.
+              Je développe principalement avec HTML/CSS, JavaScript, React, Next.js
+              et Tailwind CSS, en m’appuyant sur Git et GitHub pour versionner et collaborer.
               Je possède également des compétences en développement Back-End
               avec PHP, Laravel et SQL, ce qui me permet de mieux comprendre le
-              fonctionnement global d’une application. Mes principaux domaines
-              de compétence sont l’intégration de maquettes, la création de
-              composants React, la gestion des états et la communication avec
-              des API.
+              fonctionnement d’une application web de bout en bout. Mes domaines
+              de prédilection sont l’intégration de maquettes, la création de
+              composants React, pages réactives, la gestion des états et la consommation
+              d'API.
             </p>
             <p>
-              Face à un problème, je commence par effectuer des recherches, puis
-              je le décompose sur papier et utilise, si nécessaire, des schémas
-              simples pour visualiser les étapes de résolution. J’aborde les
-              défis techniques avec calme, patience et méthode, dans une logique
-              d’amélioration continue. Autonome mais attaché à l’entraide,
-              j’apprécie particulièrement le travail en binôme ou au sein d’une
-              petite équipe dynamique.
+              Face à un problème, je recherche, je découpe, puis je valide. J’aborde les 
+              défis avec méthode, dans une logique de maintenance et d’améliorations continues. 
+              Autonome et à l’aise en binôme, j’apprécie le travail en équipe, notamment 
+              en contexte Agile.
             </p>
             <p>
               Mon objectif est de me lancer en freelance afin d’accompagner les

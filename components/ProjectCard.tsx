@@ -24,7 +24,7 @@ export default function ProjectCard({
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-background">
         <Image
           src={project.mockup}
-          alt={`Aperçu du projet ${project.name}`}
+          alt={`${project.full_name}`}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover object-top motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:group-hover:scale-[1.04]"

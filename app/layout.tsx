@@ -15,10 +15,14 @@ export const interFont = Inter({
 
 const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Portfolio - Killian GAYEZ";
 
-const metaTitle = `${appName} - Développeur front-end junior (React/Next.js)`;
+const metaTitle =
+  "Développeur front-end junior (React) à Hendaye & Pays Basque | Killian Gayez";
 
 const metaDescription =
-  "Portfolio de Killian Gayez, développeur front-end junior. React & Next.js, accessibilité, performance et interfaces UI soignées. Découvrez mes projets et mon parcours.";
+  "Développeur front-end junior au Pays Basque (Hendaye, Bayonne, Biarritz). Je conçois des applications web interactives et des pages réactives avec React/Next.js, Git/GitHub, API et tests unitaires.";
+
+const socialImageAlt =
+  "Killian Gayez - Développeur front-end junior React/Next.js au Pays Basque";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL!),
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Portfolio Killian Gayez",
+        alt: socialImageAlt,
       },
     ],
   },

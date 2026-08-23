@@ -87,8 +87,7 @@ export default function Hero() {
           variants={reduceMotion ? undefined : fadeUp}
           className="max-w-sm text-left font-text text-base text-balance min-[375px]:text-xl min-[425px]:text-center md:text-left"
         >
-          Je crée des interfaces web simples, accessibles et centrées
-          utilisateur.
+          Je conçois des applications web interactives et des interfaces utilisateur accessibles avec React et Next.js, basées à Hendaye au Pays Basque
         </motion.p>
 
         <motion.div
@@ -115,7 +114,7 @@ export default function Hero() {
         >
           <Image
             src="/home.jpg"
-            alt="Killian GAYEZ"
+            alt="Killian Gayez, développeur front-end junior au Pays Basque"
             width={400}
             height={400}
             className={`size-58 min-[375px]:size-72 ${photoClassName}`}

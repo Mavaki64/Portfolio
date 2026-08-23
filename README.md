@@ -22,12 +22,12 @@ Ce projet a été conçu comme une vitrine professionnelle claire et soignée, a
 
 ### Sections
 
-- **Accueil** — Présentation, photo et appels à l’action
-- **À propos** — Présentation détaillée du profil
-- **Compétences** — Stack technique et soft skills
-- **Projets** — Carousel autoplay avec modale détaillée
-- **Parcours** — Timeline formations et expériences
-- **Contact** — Formulaire + liens sociaux
+- **Accueil** - Présentation, photo et appels à l’action
+- **À propos** - Présentation détaillée du profil
+- **Compétences** - Stack technique et soft skills
+- **Projets** - Carousel autoplay avec modale détaillée
+- **Parcours** - Timeline formations et expériences
+- **Contact** - Formulaire + liens sociaux
 
 ### Expérience utilisateur
 
@@ -205,8 +205,9 @@ Quelques choix techniques mis en place :
 
 ## Projets présentés
 
-- **ArgentBank** — Application bancaire React / Redux
-- **724Event** — Débogage et tests d’un site événementiel React
+- **ArgentBank** - Application bancaire React / Redux
+- **724Event** - Débogage et tests d’un site événementiel React
+- **Stephane Daubas - Guide touristique** - Site vitrine, agenda et formulaire de contact d'un client
 
 Chaque projet dispose d’une modale détaillée avec mockup, stack et lien GitHub.
 
@@ -214,7 +215,7 @@ Chaque projet dispose d’une modale détaillée avec mockup, stack et lien GitH
 
 ## Auteur
 
-**Killian GAYEZ** — Développeur front-end junior
+**Killian GAYEZ** - Développeur front-end junior
 
 - Portfolio : [killian-gayez.insaity.fr](https://killian-gayez.insaity.fr)
 - GitHub : [@Mavaki64](https://github.com/Mavaki64)
@@ -225,4 +226,4 @@ Chaque projet dispose d’une modale détaillée avec mockup, stack et lien GitH
 
 ## Licence
 
-Projet personnel — tous droits réservés.
+Projet personnel - tous droits réservés.
