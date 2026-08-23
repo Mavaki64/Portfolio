@@ -147,7 +147,7 @@ export default function Home() {
         <div className="w-full font-text text-base leading-relaxed md:text-lg">
           <Image
             src="/about.jpeg"
-            alt="Killian Gayez, développeur front-end junior au Pays Basque"
+            alt="Killian Gayez, développeur front-end junior sur la côte basque"
             width={380}
             height={380}
             className="mx-auto mb-8 block size-[280px] object-cover object-[0%_25%] min-[425px]:size-[320px] md:float-left md:mx-0 md:mb-4 md:mr-10 md:size-[380px]"
@@ -216,28 +216,28 @@ export default function Home() {
           <div className="flex w-full flex-col items-center gap-4 md:flex-1">
             <h3 className="font-title text-lg font-semibold">Stack technique</h3>
             <div className="mx-auto grid grid-cols-2 justify-items-center gap-2 min-[425px]:grid-cols-3 sm:grid-cols-4 sm:gap-4 md:grid-cols-3 xl:grid-cols-4">
-              <Skill title="HTML5" logo="/skills/html.svg" alt="HTML" index={0} />
-              <Skill title="CSS3" logo="/skills/css.svg" alt="CSS" index={1} />
+              <Skill title="HTML5" logo="/skills/html.svg" alt="Logo HTML5" index={0} />
+              <Skill title="CSS3" logo="/skills/css.svg" alt="Logo CSS3" index={1} />
               <Skill
                 title="JavaScript"
                 logo="/skills/javascript.svg"
-                alt="JavaScript"
+                alt="Logo JavaScript"
                 index={2}
               />
               <Skill
                 title="TypeScript"
                 logo="/skills/typescript.svg"
-                alt="TypeScript"
+                alt="Logo TypeScript"
                 index={3}
               />
-              <Skill title="React" logo="/skills/react.svg" alt="React" index={4} />
-              <Skill title="Next.js" logo="/skills/next.svg" alt="Next.js" index={5} />
-              <Skill title="Sass" logo="/skills/sass.svg" alt="Sass" index={6} />
-              <Skill title="Git" logo="/skills/git.svg" alt="Git" index={7} />
-              <Skill title="PHP" logo="/skills/php.svg" alt="PHP" index={8} />
-              <Skill title="Laravel" logo="/skills/laravel.svg" alt="Laravel" index={9} />
-              <Skill title="SQL" logo="/skills/sql.svg" alt="SQL" index={10} />
-              <Skill title="Python" logo="/skills/python.svg" alt="Python" index={11} />
+              <Skill title="React" logo="/skills/react.svg" alt="Logo React" index={4} />
+              <Skill title="Next.js" logo="/skills/next.svg" alt="Logo Next.js" index={5} />
+              <Skill title="Sass" logo="/skills/sass.svg" alt="Logo Sass" index={6} />
+              <Skill title="Git" logo="/skills/git.svg" alt="Logo Git" index={7} />
+              <Skill title="PHP" logo="/skills/php.svg" alt="Logo PHP" index={8} />
+              <Skill title="Laravel" logo="/skills/laravel.svg" alt="Logo Laravel" index={9} />
+              <Skill title="SQL" logo="/skills/sql.svg" alt="Logo SQL" index={10} />
+              <Skill title="Python" logo="/skills/python.svg" alt="Logo Python" index={11} />
             </div>
           </div>
           <div
